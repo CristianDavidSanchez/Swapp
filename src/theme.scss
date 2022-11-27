@@ -14,7 +14,7 @@ $md-custom: (
     A100 : #ffffff,
     A200 : #ffffff,
     A400 : #eae7ff,
-    A700 : #d4ceff,
+    A700 : #020202,
     contrast: (
         50 : #000000,
         100 : #000000,
@@ -29,11 +29,11 @@ $md-custom: (
         A100 : #000000,
         A200 : #000000,
         A400 : #000000,
-        A700 : #000000,
+        A700 : #fffdfd,
     )
 );
   $primary: mat-palette($md-custom,500);
-  $accent: mat-palette($md-custom,200);
+  $accent: mat-palette($md-custom,A700);
 
   $theme: mat-light-theme($primary, $accent);
 
