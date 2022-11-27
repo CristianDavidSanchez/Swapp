@@ -1,0 +1,61 @@
+html{
+    height: 100vh;
+}
+body{
+    margin: 0;
+    min-height: 100vh;
+}
+.background::before{
+    content:'';
+    z-index: -1;
+    position:absolute;
+    width: 100%;
+    min-height: 100vh;    /* background: #26204e;     */
+    opacity: 0.88; 
+}
+.background{
+    z-index: 0;
+    position:relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: #A093EC;
+    background-size:cover; 
+}
+
+.login-container{
+    width: 30%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;   
+}
+.logo{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;   
+}
+.logintext{
+    margin-top: 5%;
+}
+.loginbtn{
+    margin-top: 5%;
+}
+h3{
+    color: #0f0404;
+    font-weight:lighter;
+    text-align: center;
+    font-size: 20px;
+    
+}
+.mat-flat-button.mat-accent, .mat-raised-button.mat-accent, .mat-fab.mat-accent, .mat-mini-fab.mat-accent {
+    width: 200px;
+    border-radius: 20px;
+    background-color: #020202;
+    }
+
