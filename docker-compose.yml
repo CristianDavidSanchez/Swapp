@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  swapp:
+    image: swapp-front
+    ports:
+      - "4200:4200"
+    volumes:
+      - '.:/usr/src'
+      - '/usr/src/node_modules'

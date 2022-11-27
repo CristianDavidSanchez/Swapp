@@ -1,0 +1,19 @@
+
+.mat-toolbar-single-row{
+    height: 78px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.logo {
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+}
+.menu-item {
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    align-items: center;
+}
