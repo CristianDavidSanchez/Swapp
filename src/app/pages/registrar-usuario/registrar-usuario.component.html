@@ -1,1 +1,87 @@
-<p>registrar-usuario works!</p>
+<body>
+    <div class="background">
+        <div class="logo">
+            <img src="assets/logo 1.png" width="70%">
+            <span>Sw-app</span>
+        </div>
+        <div class="form-container">
+            <div class="form-row">
+                <mat-form-field appearance="outline" class="example-form-field" color="primary">
+                    <mat-label>Nombre completo</mat-label>
+                    <input matInput type="text" [(ngModel)]="email">
+                    <button *ngIf="email" matSuffix mat-icon-button aria-label="Clear" (click)="email=''">
+                      <mat-icon>close</mat-icon>
+                    </button>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline" class="example-form-field" color="primary">
+                    <mat-label>Correo</mat-label>
+                    <input matInput type="text" [(ngModel)]="email">
+                    <button *ngIf="email" matSuffix mat-icon-button aria-label="Clear" (click)="email=''">
+                      <mat-icon>close</mat-icon>
+                    </button>
+                  </mat-form-field>
+            </div>
+            <div class="form-row">
+                <mat-form-field appearance="outline" class="example-form-field" color="primary">
+                    <mat-label>Cedula</mat-label>
+                    <input matInput type="text" [(ngModel)]="password">
+                    <button *ngIf="password" matSuffix mat-icon-button aria-label="Clear" (click)="password=''">
+                      <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="example-form-field" color="primary">
+                    <mat-label>Categoría Preferencia</mat-label>
+                    <input matInput type="text" [(ngModel)]="email">
+                    <button *ngIf="email" matSuffix mat-icon-button aria-label="Clear" (click)="email=''">
+                      <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+            </div>
+
+            <div class="form-row">
+                <mat-form-field appearance="outline" class="example-form-field" color="primary">
+                    <mat-label>Dirección</mat-label>
+                    <input matInput type="text" [(ngModel)]="password">
+                    <button *ngIf="password" matSuffix mat-icon-button aria-label="Clear" (click)="password=''">
+                      <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="example-form-field" color="primary">
+                    <mat-label>Celular</mat-label>
+                    <input matInput type="text" [(ngModel)]="email">
+                    <button *ngIf="email" matSuffix mat-icon-button aria-label="Clear" (click)="email=''">
+                      <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+            </div>
+
+            <div class="form-row">
+                <mat-form-field appearance="outline" class="example-form-field" color="primary" >
+                    <mat-label>Ciudad</mat-label>
+                    <input matInput type="text" [(ngModel)]="password">
+                    <button *ngIf="password" matSuffix mat-icon-button aria-label="Clear" (click)="password=''">
+                      <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="example-form-field" color="primary">
+                    <mat-label>Contraseña</mat-label>
+                    <input matInput type="text" [(ngModel)]="email">
+                    <button *ngIf="email" matSuffix mat-icon-button aria-label="Clear" (click)="email=''">
+                      <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+            </div>
+
+            
+            <div class="loginbtn">
+                <button mat-raised-button color="accent" routerLink="/login">Registrarse</button>
+            </div>
+        </div>
+    </div>   
+</body>
+
+

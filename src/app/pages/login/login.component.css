@@ -34,7 +34,8 @@ body{
     flex-direction: column;   
 }
 .logo{
-
+    font-size: 50px;
+    font-weight:500;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,9 +54,8 @@ h3{
     font-size: 20px;
     
 }
-.mat-flat-button.mat-accent, .mat-raised-button.mat-accent, .mat-fab.mat-accent, .mat-mini-fab.mat-accent {
-    width: 200px;
+.mat-raised-button.mat-accent{
+    width: 180px;
+    height: 40px;
     border-radius: 20px;
-    background-color: #020202;
-    }
-
+}

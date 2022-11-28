@@ -1,18 +1,33 @@
 <body>
     <div class="background">
         <div class="logo">
-            <img src="assets/logo 1.png" width="50%">
+            <img src="assets/logo 1.png" width="70%">
             <span>Sw-app</span>
         </div>
         <div class="login-container">
-            <div class="loginbtn">
-                <button mat-raised-button color="accent">Ingresar</button>
-            </div>
-            <div class="loginbtn">
-                <button mat-raised-button color="accent">Registrarse</button>
+            <div class="logintext">
+                <mat-form-field appearance="outline" class="example-form-field" color="accent">
+                    <mat-label>Correo</mat-label>
+                    <input matInput type="text" [(ngModel)]="email">
+                    <button *ngIf="email" matSuffix mat-icon-button aria-label="Clear" (click)="email=''">
+                      <mat-icon>close</mat-icon>
+                    </button>
+                  </mat-form-field>
             </div>
             <div class="logintext">
-                <h3>Haz click en el botón y realiza tu ingreso con las credenciales dadas por tu administrador</h3>
+                <mat-form-field appearance="outline" class="example-form-field" color="accent">
+                    <mat-label>Contraseña</mat-label>
+                    <input matInput type="text" [(ngModel)]="password">
+                    <button *ngIf="password" matSuffix mat-icon-button aria-label="Clear" (click)="password=''">
+                      <mat-icon>close</mat-icon>
+                    </button>
+                  </mat-form-field>
+            </div>
+            <div class="loginbtn">
+                <button mat-raised-button color="accent" routerLink="/misElementos">Ingresar</button>
+            </div>
+            <div class="loginbtn">
+                <button mat-raised-button color="accent" routerLink="/registrarse">Registrarse</button>
             </div>
         </div>
     </div>   

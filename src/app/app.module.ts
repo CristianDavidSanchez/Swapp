@@ -16,6 +16,9 @@ import { MisTruequesComponent } from './pages/mis-trueques/mis-trueques.componen
 import { RegistrarElementoComponent } from './pages/registrar-elemento/registrar-elemento.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { CatalogoElementosComponent } from './pages/catalogo-elementos/catalogo-elementos.component';
+import {MatInputModule} from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +39,9 @@ import { CatalogoElementosComponent } from './pages/catalogo-elementos/catalogo-
     MatSliderModule,
     MatToolbarModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatInputModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
