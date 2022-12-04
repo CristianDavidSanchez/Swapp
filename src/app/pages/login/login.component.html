@@ -8,8 +8,8 @@
             <div class="logintext">
                 <mat-form-field appearance="outline" class="example-form-field" color="accent">
                     <mat-label>Correo</mat-label>
-                    <input matInput type="text" [(ngModel)]="email">
-                    <button *ngIf="email" matSuffix mat-icon-button aria-label="Clear" (click)="email=''">
+                    <input matInput type="text" [(ngModel)]="usuario.correo">
+                    <button *ngIf="usuario.correo" matSuffix mat-icon-button aria-label="Clear" (click)="usuario.correo=''">
                       <mat-icon>close</mat-icon>
                     </button>
                   </mat-form-field>
@@ -17,14 +17,14 @@
             <div class="logintext">
                 <mat-form-field appearance="outline" class="example-form-field" color="accent">
                     <mat-label>Contraseña</mat-label>
-                    <input matInput type="text" [(ngModel)]="password">
-                    <button *ngIf="password" matSuffix mat-icon-button aria-label="Clear" (click)="password=''">
+                    <input matInput type="text" [(ngModel)]="usuario.contrasena">
+                    <button *ngIf="usuario.contrasena" matSuffix mat-icon-button aria-label="Clear" (click)="usuario.contrasena=''">
                       <mat-icon>close</mat-icon>
                     </button>
                   </mat-form-field>
             </div>
             <div class="loginbtn">
-                <button mat-raised-button color="accent" routerLink="/misElementos">Ingresar</button>
+                <button mat-raised-button color="accent" (click)="login()">Ingresar</button>
             </div>
             <div class="loginbtn">
                 <button mat-raised-button color="accent" routerLink="/registrarse">Registrarse</button>
