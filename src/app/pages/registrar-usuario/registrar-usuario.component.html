@@ -8,16 +8,16 @@
             <div class="form-row">
                 <mat-form-field appearance="outline" class="example-form-field" color="primary">
                     <mat-label>Nombre completo</mat-label>
-                    <input matInput type="text" [(ngModel)]="email">
-                    <button *ngIf="email" matSuffix mat-icon-button aria-label="Clear" (click)="email=''">
+                    <input matInput type="text" [(ngModel)]="usuarioNuevo.nombreCompleto">
+                    <button *ngIf="usuarioNuevo.nombreCompleto" matSuffix mat-icon-button aria-label="Clear" (click)="email=''">
                       <mat-icon>close</mat-icon>
                     </button>
                   </mat-form-field>
 
                   <mat-form-field appearance="outline" class="example-form-field" color="primary">
                     <mat-label>Correo</mat-label>
-                    <input matInput type="text" [(ngModel)]="email">
-                    <button *ngIf="email" matSuffix mat-icon-button aria-label="Clear" (click)="email=''">
+                    <input matInput type="text" [(ngModel)]="usuarioNuevo.correo">
+                    <button *ngIf="usuarioNuevo.correo" matSuffix mat-icon-button aria-label="Clear" (click)="email=''">
                       <mat-icon>close</mat-icon>
                     </button>
                   </mat-form-field>
@@ -25,34 +25,42 @@
             <div class="form-row">
                 <mat-form-field appearance="outline" class="example-form-field" color="primary">
                     <mat-label>Cedula</mat-label>
-                    <input matInput type="text" [(ngModel)]="password">
-                    <button *ngIf="password" matSuffix mat-icon-button aria-label="Clear" (click)="password=''">
+                    <input matInput type="text" [(ngModel)]="usuarioNuevo.documentoIdentificacion">
+                    <button *ngIf="usuarioNuevo.documentoIdentificacion" matSuffix mat-icon-button aria-label="Clear" (click)="password=''">
                       <mat-icon>close</mat-icon>
                     </button>
                 </mat-form-field>
 
-                <mat-form-field appearance="outline" class="example-form-field" color="primary">
+                <!-- <mat-form-field appearance="outline" class="example-form-field" color="primary">
                     <mat-label>Categoría Preferencia</mat-label>
                     <input matInput type="text" [(ngModel)]="email">
                     <button *ngIf="email" matSuffix mat-icon-button aria-label="Clear" (click)="email=''">
                       <mat-icon>close</mat-icon>
                     </button>
+                </mat-form-field> -->
+                <mat-form-field appearance="outline" class="example-form-field" color="primary">
+                  <mat-label>Categoría</mat-label>
+                  <mat-select>
+                    <mat-option *ngFor="let categoria of categorias" [value]="categoria.id">
+                      {{categoria.nombre}}
+                    </mat-option>
+                  </mat-select>
                 </mat-form-field>
             </div>
 
             <div class="form-row">
                 <mat-form-field appearance="outline" class="example-form-field" color="primary">
                     <mat-label>Dirección</mat-label>
-                    <input matInput type="text" [(ngModel)]="password">
-                    <button *ngIf="password" matSuffix mat-icon-button aria-label="Clear" (click)="password=''">
+                    <input matInput type="text" [(ngModel)]="usuarioNuevo.direccion">
+                    <button *ngIf="usuarioNuevo.direccion" matSuffix mat-icon-button aria-label="Clear" (click)="password=''">
                       <mat-icon>close</mat-icon>
                     </button>
                 </mat-form-field>
 
                 <mat-form-field appearance="outline" class="example-form-field" color="primary">
                     <mat-label>Celular</mat-label>
-                    <input matInput type="text" [(ngModel)]="email">
-                    <button *ngIf="email" matSuffix mat-icon-button aria-label="Clear" (click)="email=''">
+                    <input matInput type="text" [(ngModel)]="usuarioNuevo.celular">
+                    <button *ngIf="usuarioNuevo.celular" matSuffix mat-icon-button aria-label="Clear" (click)="email=''">
                       <mat-icon>close</mat-icon>
                     </button>
                 </mat-form-field>
@@ -61,24 +69,26 @@
             <div class="form-row">
                 <mat-form-field appearance="outline" class="example-form-field" color="primary" >
                     <mat-label>Ciudad</mat-label>
-                    <input matInput type="text" [(ngModel)]="password">
-                    <button *ngIf="password" matSuffix mat-icon-button aria-label="Clear" (click)="password=''">
-                      <mat-icon>close</mat-icon>
-                    </button>
+                    <mat-select>
+                        <mat-option value="Bogotá">Bogotá</mat-option>
+                        <mat-option value="Medellin">Medellin</mat-option>
+                        <mat-option value="Cali">Cali</mat-option>
+                        <mat-option value="Tunja">Tunja</mat-option>
+                        <mat-option value="Pereira">Pereira</mat-option>
+                        <mat-option value="Barranquilla">Barranquilla</mat-option>
+                    </mat-select>
                 </mat-form-field>
 
                 <mat-form-field appearance="outline" class="example-form-field" color="primary">
                     <mat-label>Contraseña</mat-label>
-                    <input matInput type="text" [(ngModel)]="email">
-                    <button *ngIf="email" matSuffix mat-icon-button aria-label="Clear" (click)="email=''">
+                    <input matInput type="text" [(ngModel)]="usuarioNuevo.contrasena">
+                    <button *ngIf="usuarioNuevo.contrasena" matSuffix mat-icon-button aria-label="Clear" (click)="email=''">
                       <mat-icon>close</mat-icon>
                     </button>
                 </mat-form-field>
             </div>
-
-            
             <div class="loginbtn">
-                <button mat-raised-button color="accent" routerLink="/login">Registrarse</button>
+                <button mat-raised-button color="accent" (click)="registrarse()">Registrarse</button>
             </div>
         </div>
     </div>   

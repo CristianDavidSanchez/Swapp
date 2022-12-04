@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Categoria } from 'src/app/models/negocio.model';
+import { Usuario } from 'src/app/models/user.model';
+import { HttpService } from 'src/app/services/http.service';
 
 @Component({
   selector: 'app-registrar-usuario',
@@ -8,9 +11,26 @@ import { Component, OnInit } from '@angular/core';
 export class RegistrarUsuarioComponent implements OnInit {
   email:string = '';
   password:string='';
-  constructor() { }
+  categorias:Categoria[]=[];
+  usuarioNuevo:Usuario=new Usuario();
+  constructor(private httpService:HttpService) { }
 
   ngOnInit(): void {
+    this.httpService.getCategorias().subscribe(
+      res=>{this.categorias=res
+      console.log(this.categorias)
+      }
+    )
+  }
+
+  /**
+   * registrarse
+   */
+  public registrarse() {
+      this.usuarioNuevo.estado=true;
+      this.httpService.postUsuario(this.usuarioNuevo).subscribe(
+        res=>{console.log(res)}
+      )
   }
 
 }
