@@ -1,5 +1,5 @@
 export class Usuario{
-    id?:number;
+    id?:number|undefined;
     nombreCompleto?: string;
     documentoIdentificacion?:number;
     correo?:string;

@@ -20,8 +20,9 @@ export class Trueque{
     precioLogistica?:number;
     solicitanteId?:number;
     solicitadoId?:number;
+    solicitante?:Usuario;
     elementoDeseado?:ElementoDeseado;
-    elementoTrueque?:ElementoTrueque;
+    elementoTrueque?:ElementoTrueque|undefined;
 }
 export class ElementoDeseado{
     id?:number;

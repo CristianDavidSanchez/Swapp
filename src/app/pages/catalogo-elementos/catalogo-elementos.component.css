@@ -1,0 +1,29 @@
+.example-card {
+    max-width: 300px;
+    background: rgba(160, 147, 236, 0.38);
+    margin: 10px;
+}
+  
+.example-header-image {
+background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+background-size: cover;
+}
+.layout{
+    margin: 5%;
+    display: flex;
+}
+.mat-card img{
+    object-fit: contain; /*this makes the image in src fit to the size specified below*/
+    width: 100%; /* Here you can use wherever you want to specify the width and also the height of the <img>*/
+    max-height: 200px;
+    background-color: white;
+    margin: 0px 0px 15px 0px;
+  }
+.mat-card-actions{
+    display: flex;
+    justify-content: center;
+}
+.menu-card{
+    position: absolute;
+    background: linear-gradient(0deg, rgba(103, 80, 164, 0.11), rgba(103, 80, 164, 0.11)), #FFFBFE;
+}

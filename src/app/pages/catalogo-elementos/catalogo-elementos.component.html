@@ -1,1 +1,41 @@
-<p>catalogo-s works!</p>
+<div class="layout">
+    <mat-card class="example-card" *ngFor="let elemento of elementos" >
+        <mat-card-header>
+          <div mat-card-avatar>
+            <mat-icon *ngIf="elemento.categoria?.nombre=='Ropa'" aria-label="Example home icon" fontIcon="checkroom"></mat-icon>
+            <mat-icon *ngIf="elemento.categoria?.nombre=='Tecnologia'" aria-label="Example home icon" fontIcon="phone_iphone"></mat-icon>
+            <mat-icon *ngIf="elemento.categoria?.nombre=='Deportes'" aria-label="Example home icon" fontIcon="checkroom"></mat-icon>
+
+          </div>
+          <mat-card-title>{{elemento.nombre}}</mat-card-title>
+          <mat-card-subtitle>Usuario:{{elemento.usuario!.nombreCompleto}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src={{elemento.enlaceImagen}} alt="Photo of a Shiba Inu" width="10px">
+        <mat-card-content>
+          <p>
+            {{elemento.descripcion}}
+          </p>
+          <mat-card-subtitle>Elementos Deseados:</mat-card-subtitle>
+          <ul>
+            <li *ngFor="let elementoDeseado of elemento.elementosDeseados">{{elementoDeseado.nombre}}</li>
+          </ul>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-stroked-button (click)="menuCard=true" color="primary">Solicitar Trueque</button>
+          <mat-card *ngIf="menuCard==true" class="menu-card">
+            <mat-card-title>Seleccione el objeto que desea ofrecer</mat-card-title>
+            <mat-form-field appearance="outline" class="example-form-field" color="primary">
+                <mat-label>Elemento Deseado</mat-label>
+                <mat-select [(ngModel)]="elementoDeseado">
+                  <mat-option *ngFor="let elementoDeseado of elemento.elementosDeseados" [value]="elementoDeseado">
+                    {{elementoDeseado.nombre}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-card-actions>
+                <button mat-stroked-button (click)="solicitarTrueque(elemento)" color="secondary">Enviar Solicitud</button>
+              </mat-card-actions>
+          </mat-card>
+        </mat-card-actions>
+    </mat-card>
+</div>

@@ -35,6 +35,10 @@ const routes: Routes = [
         component:CatalogoElementosComponent,
       },
       {
+        path:'registrarElemento',
+        component:RegistrarElementoComponent,
+      },
+      {
         path:'misElementos',
         component:MisElementosComponent,
         children:[

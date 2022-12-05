@@ -27,9 +27,10 @@ export class LoginComponent implements OnInit {
             localStorage.setItem('user',JSON.stringify(loggedUser));
             this.router.navigate(['elementos']);
           }else{
-            this.snackBar.openFromComponent(ErrorAlertComponent,{
-              duration: 2000,
-            })
+            this.snackBar.open("Usuario o contraseña incorrectos","OK")
+            // this.snackBar.openFromComponent(ErrorAlertComponent,{
+            //   duration: 2000,
+            // })
           }
         }
       )

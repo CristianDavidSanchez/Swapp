@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Categoria } from 'src/app/models/negocio.model';
 import { Usuario } from 'src/app/models/user.model';
 import { HttpService } from 'src/app/services/http.service';
@@ -13,7 +14,7 @@ export class RegistrarUsuarioComponent implements OnInit {
   password:string='';
   categorias:Categoria[]=[];
   usuarioNuevo:Usuario=new Usuario();
-  constructor(private httpService:HttpService) { }
+  constructor(private httpService:HttpService,public router:Router) { }
 
   ngOnInit(): void {
     this.httpService.getCategorias().subscribe(
@@ -29,7 +30,9 @@ export class RegistrarUsuarioComponent implements OnInit {
   public registrarse() {
       this.usuarioNuevo.estado=true;
       this.httpService.postUsuario(this.usuarioNuevo).subscribe(
-        res=>{console.log(res)}
+        res=>{
+          if(res){this.router.navigate(['']);}
+          }
       )
   }
 

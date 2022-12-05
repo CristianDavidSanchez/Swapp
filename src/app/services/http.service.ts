@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Usuario } from '../models/user.model';
-import { Categoria } from '../models/negocio.model';
+import { Categoria, ElementoTrueque, Trueque } from '../models/negocio.model';
 
 
 @Injectable({
@@ -23,5 +23,17 @@ export class HttpService {
   }
   public postUsuario(usuario:Usuario): Observable<Usuario>{
     return this.http.post<Usuario>(environment.API+"/nuevoUsuario",usuario)
+  }
+  public getElementos():Observable<ElementoTrueque[]>{
+		return this.http.get<ElementoTrueque[]>(environment.API + '/ElementosTrueque');
+  }
+  public solicitarTrueque(trueque:Trueque):Observable<Trueque>{
+    return this.http.post<Trueque>(environment.API+"/nuevoTrueque",trueque)	
+  }
+  public getElementosByUser(id:number):Observable<ElementoTrueque[]>{
+		return this.http.get<ElementoTrueque[]>(environment.API + '/ElementosUsuarios/'+id);
+  }
+  public deleteElemento(id:number):Observable<String>{
+		return this.http.delete<String>(environment.API + '/ElementosTrueque/'+id);
   }
 }

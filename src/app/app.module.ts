@@ -22,6 +22,8 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ErrorAlertComponent } from './components/error-alert/error-alert.component';
 import {MatSelectModule} from '@angular/material/select';
+import {MatCardModule} from '@angular/material/card';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import {MatSelectModule} from '@angular/material/select';
     FormsModule,
     HttpClientModule,
     MatSnackBarModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCardModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
