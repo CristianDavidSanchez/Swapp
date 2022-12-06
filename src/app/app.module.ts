@@ -17,13 +17,15 @@ import { RegistrarElementoComponent } from './pages/registrar-elemento/registrar
 import { LayoutComponent } from './components/layout/layout.component';
 import { CatalogoElementosComponent } from './pages/catalogo-elementos/catalogo-elementos.component';
 import {MatInputModule} from '@angular/material/input';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ErrorAlertComponent } from './components/error-alert/error-alert.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -48,11 +50,14 @@ import {MatMenuModule} from '@angular/material/menu';
     MatButtonModule,
     MatInputModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     MatSnackBarModule,
     MatSelectModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    MatChipsModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

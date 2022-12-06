@@ -21,8 +21,8 @@
           </ul>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-stroked-button (click)="menuCard=true" color="primary">Solicitar Trueque</button>
-          <mat-card *ngIf="menuCard==true" class="menu-card">
+          <button mat-stroked-button (click)="menuCard=true; showId=elemento.id" color="primary">Solicitar Trueque</button>
+          <mat-card *ngIf="menuCard==true && showId==elemento.id" class="menu-card">
             <mat-card-title>Seleccione el objeto que desea ofrecer</mat-card-title>
             <mat-form-field appearance="outline" class="example-form-field" color="primary">
                 <mat-label>Elemento Deseado</mat-label>
@@ -34,6 +34,7 @@
               </mat-form-field>
               <mat-card-actions>
                 <button mat-stroked-button (click)="solicitarTrueque(elemento)" color="secondary">Enviar Solicitud</button>
+                <button mat-stroked-button (click)="menuCard=false" color="secondary">Cancelar</button>
               </mat-card-actions>
           </mat-card>
         </mat-card-actions>

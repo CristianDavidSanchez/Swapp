@@ -1,7 +1,7 @@
 .form-container{
     display: flex;
     margin-top: 20%;
-    margin-left: 25%;
+    margin-left: 35%;
     align-items: center;
     flex-direction: row;  
 }
@@ -10,4 +10,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
+.loginbtn{
+    display: flex;
+    justify-content: center;
 }

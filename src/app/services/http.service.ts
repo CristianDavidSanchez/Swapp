@@ -36,4 +36,7 @@ export class HttpService {
   public deleteElemento(id:number):Observable<String>{
 		return this.http.delete<String>(environment.API + '/ElementosTrueque/'+id);
   }
+  public postElemento(elemento:ElementoTrueque): Observable<Usuario>{
+    return this.http.post<Usuario>(environment.API+"/nuevoElementoTrueque",elemento)
+  }
 }

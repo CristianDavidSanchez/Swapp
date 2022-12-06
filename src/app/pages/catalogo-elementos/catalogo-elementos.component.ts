@@ -11,6 +11,7 @@ import { HttpService } from 'src/app/services/http.service';
 })
 export class CatalogoElementosComponent implements OnInit {
   menuCard:any=false;
+  showId:any=null;
   elementos:ElementoTrueque[]=[];
   solicitante:Usuario=new Usuario();
   elementoDeseado:ElementoDeseado=new ElementoDeseado();
@@ -20,7 +21,7 @@ export class CatalogoElementosComponent implements OnInit {
     let usuario:any=localStorage.getItem('user')
     if (localStorage.getItem('user')!=null){this.solicitante=JSON.parse(usuario);}
     this.httpService.getElementos().subscribe(
-      res=>{this.elementos=res.filter(elemento=>elemento.disponible==true)
+      res=>{this.elementos=res.filter(elemento=>elemento.disponible==true&&elemento.usuario?.id!=this.solicitante.id)
       }
     )
   }

@@ -1,34 +1,66 @@
 <div class="form-container">
     <div class="form-column">
         <mat-form-field appearance="outline" class="example-form-field" color="primary">
-            <mat-label>Nombre completo</mat-label>
-            <input matInput type="text" [(ngModel)]="usuarioNuevo.nombreCompleto">
-            <button *ngIf="usuarioNuevo.nombreCompleto" matSuffix mat-icon-button aria-label="Clear" (click)="usuarioNuevo.nombreCompleto=''">
+            <mat-label>Nombre</mat-label>
+            <input matInput type="text" [(ngModel)]="elementoNuevo.nombre">
+            <button *ngIf="elementoNuevo.nombre" matSuffix mat-icon-button aria-label="Clear" (click)="elementoNuevo.nombre=''">
               <mat-icon>close</mat-icon>
             </button>
           </mat-form-field>
           <mat-form-field appearance="outline" class="example-form-field" color="primary">
-            <mat-label>Nombre completo</mat-label>
-            <input matInput type="text" [(ngModel)]="usuarioNuevo.nombreCompleto">
-            <button *ngIf="usuarioNuevo.nombreCompleto" matSuffix mat-icon-button aria-label="Clear" (click)="usuarioNuevo.nombreCompleto=''">
+            <mat-label>Categoría</mat-label>
+            <mat-select [(ngModel)]="categoriaSelected">
+              <mat-option *ngFor="let categoria of categorias" [value]="categoria">
+                {{categoria.nombre}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="example-form-field" color="primary">
+            <mat-label>Enlace de la imagen</mat-label>
+            <input matInput type="text" [(ngModel)]="elementoNuevo.enlaceImagen">
+            <button *ngIf="elementoNuevo.enlaceImagen" matSuffix mat-icon-button aria-label="Clear" (click)="elementoNuevo.enlaceImagen=''">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+          <!-- <mat-form-field appearance="outline" class="example-form-field" color="primary">
+            <mat-label>Precio COP</mat-label>
+            <input matInput type="text" [(ngModel)]="elementosDeseados[0].nombre">
+            <button *ngIf="elementosDeseados[0].nombre" matSuffix mat-icon-button aria-label="Clear" (click)="elementosDeseados[0].nombre=''">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field> -->
+          <mat-form-field appearance="outline" class="example-form-field" color="primary">
+            <mat-label>Estado del objeto</mat-label>
+            <input matInput type="text" [(ngModel)]="elementoNuevo.estadoElemento">
+            <button *ngIf="elementoNuevo.estadoElemento" matSuffix mat-icon-button aria-label="Clear" (click)="elementoNuevo.estadoElemento=''">
               <mat-icon>close</mat-icon>
             </button>
           </mat-form-field>
     </div>
     <div class="form-column">
-        <mat-form-field appearance="outline" class="example-form-field" color="primary">
-            <mat-label>Nombre completo</mat-label>
-            <input matInput type="text" [(ngModel)]="usuarioNuevo.nombreCompleto">
-            <button *ngIf="usuarioNuevo.nombreCompleto" matSuffix mat-icon-button aria-label="Clear" (click)="usuarioNuevo.nombreCompleto=''">
-              <mat-icon>close</mat-icon>
+      <mat-form-field appearance="outline" class="example-chip-list" appearance="fill">
+        <mat-label>Elementos Deseados</mat-label>
+        <mat-chip-list #chipGrid aria-label="Enter fruits">
+          <mat-chip *ngFor="let elementoDeseado of elementosDeseados"
+                        (removed)="remove(elementoDeseado)">
+            {{elementoDeseado.nombre}}
+            <button matChipRemove [attr.aria-label]="'remove ' + elementoDeseado">
+              <mat-icon>cancel</mat-icon>
             </button>
-          </mat-form-field>
-          <mat-form-field appearance="outline" class="example-form-field" color="primary">
-            <mat-label>Nombre completo</mat-label>
-            <input matInput type="text" [(ngModel)]="usuarioNuevo.nombreCompleto">
-            <button *ngIf="usuarioNuevo.nombreCompleto" matSuffix mat-icon-button aria-label="Clear" (click)="usuarioNuevo.nombreCompleto=''">
-              <mat-icon>close</mat-icon>
-            </button>
-          </mat-form-field>
+          </mat-chip>
+          <input placeholder="Nuevo Elemento Deseado..."
+                 [matChipInputFor]="chipGrid"
+                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                 [matChipInputAddOnBlur]="addOnBlur"
+                 (matChipInputTokenEnd)="add($event)"/>
+        </mat-chip-list>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Descripción</mat-label>
+        <textarea [(ngModel)]="elementoNuevo.descripcion" matInput></textarea>
+      </mat-form-field>
     </div>
+</div>
+<div class="loginbtn">
+  <button mat-raised-button color="accent" (click)="registrarElemento()">Registrar Elemento</button>
 </div>

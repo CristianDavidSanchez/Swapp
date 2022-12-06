@@ -1,5 +1,6 @@
 .example-card {
     max-width: 300px;
+    min-width: 200px;
     background: rgba(160, 147, 236, 0.38);
     margin: 10px;
 }
@@ -26,4 +27,8 @@ background-size: cover;
 .menu-card{
     position: absolute;
     background: linear-gradient(0deg, rgba(103, 80, 164, 0.11), rgba(103, 80, 164, 0.11)), #FFFBFE;
+}
+.mat-card-actions{
+    display: flex;
+    justify-content: center;
 }
