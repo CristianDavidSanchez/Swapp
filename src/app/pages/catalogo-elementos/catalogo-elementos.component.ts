@@ -31,7 +31,7 @@ export class CatalogoElementosComponent implements OnInit {
       let trueque:Trueque={
           solicitante:{id:this.solicitante.id},
           elementoTrueque:{id:elemento.id},
-          elementoDeseado:{id:elemento.id}
+          elementoDeseado:{id:this.elementoDeseado.id}
       }
       this.menuCard=false;
       this.httpService.solicitarTrueque(trueque).subscribe(

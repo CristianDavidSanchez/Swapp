@@ -26,6 +26,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatListModule} from '@angular/material/list';
+import {MatTableModule} from '@angular/material/table'
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import {MatListModule} from '@angular/material/list';
     MatCardModule,
     MatMenuModule,
     MatChipsModule,
-    MatListModule
+    MatListModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

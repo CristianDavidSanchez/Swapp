@@ -39,4 +39,19 @@ export class HttpService {
   public postElemento(elemento:ElementoTrueque): Observable<Usuario>{
     return this.http.post<Usuario>(environment.API+"/nuevoElementoTrueque",elemento)
   }
+  public getTruequesByUser(id:number):Observable<Trueque[]>{
+		return this.http.get<Trueque[]>(environment.API + '/Trueques/'+id);
+  }
+  public aceptarTrueque(id:number):Observable<String>{
+    return this.http.put<String>(environment.API + '/Trueque/Aceptar/'+id,{})
+  }
+  public rechazarTrueque(id:number):Observable<String>{
+    return this.http.put<String>(environment.API + '/Trueque/Rechazar/'+id,{})
+  }
+  public finalizarTrueque(id:number):Observable<String>{
+    return this.http.put<String>(environment.API + '/Trueque/Finalizar/'+id,{})
+  }
+  public cancelarTrueque(id:number):Observable<String>{
+    return this.http.put<String>(environment.API + '/Trueque/Cancelar/'+id,{})
+  }
 }
