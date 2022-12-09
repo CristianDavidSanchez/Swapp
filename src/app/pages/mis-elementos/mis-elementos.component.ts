@@ -16,7 +16,7 @@ export class MisElementosComponent implements OnInit {
   loggedUser:Usuario=new Usuario();
   elementoDeseado:ElementoDeseado=new ElementoDeseado();
   showId:any=null;
-  constructor(private httpService:HttpService,public router:Router) {
+  constructor(private httpService:HttpService) {
     let usuario:any=localStorage.getItem('user');
     if (localStorage.getItem('user')!=null){this.loggedUser=JSON.parse(usuario);}
    }

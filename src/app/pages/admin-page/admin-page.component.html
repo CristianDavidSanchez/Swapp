@@ -39,33 +39,10 @@
         <th mat-header-cell *matHeaderCellDef> Precio Logistica </th>
         <td mat-cell *matCellDef="let trueque"> {{trueque.precioLogistica}} COP </td>
     </ng-container>
-
-    <ng-container matColumnDef="actions">
-        <th mat-header-cell *matHeaderCellDef> Actions</th>
-        <td mat-cell *matCellDef="let trueque">
-            <!-- SOLO SI SOLICITADO ES EL MISMO LOGGEADO -->
-            <button *ngIf="trueque.estado=='INICIADO'&&trueque.elementoTrueque.usuario.id==loggedUser.id" 
-            mat-stroked-button color="primary" (click)="aceptarTrueque(trueque.id)">
-                Aceptar Trueque
-            </button>
-            <button *ngIf="trueque.estado=='INICIADO'&&trueque.elementoTrueque.usuario.id==loggedUser.id" 
-            mat-stroked-button color="secondary" (click)="rechazarTrueque(trueque.id)">
-                Rechazar Trueque
-            </button>
-            <!-- SOLO SI SOLICITANTE ES EL LOGGEADO Y TRUEQUE INICIADO -->
-            <button *ngIf="trueque.estado=='INICIADO'&&trueque.solicitante.id==loggedUser.id" 
-            mat-stroked-button color="secondary" (click)="cancelarTrueque(trueque.id)">
-                Cancelar Trueque
-            </button>
-            <button *ngIf="trueque.estado=='ACEPTADO'&&trueque.solicitante.id==loggedUser.id" 
-            mat-stroked-button color="primary" (click)="finalizarTrueque(trueque.id)">
-                Finalizar Trueque
-            </button>
-            
-        </td>
+    <ng-container matColumnDef="estado">
+        <th mat-header-cell *matHeaderCellDef> Estado </th>
+        <td mat-cell *matCellDef="let trueque"> {{trueque.estado}}</td>
     </ng-container>
-
-  
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>

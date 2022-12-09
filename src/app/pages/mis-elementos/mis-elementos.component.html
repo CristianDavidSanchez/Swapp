@@ -24,16 +24,16 @@
             </ul>
             </mat-card-content>
             <mat-card-actions>
-                <button mat-icon-button (click)="menuCard=true; showId=elemento.id">
+                <button mat-icon-button (click)="menuCard=true; eliminarElemento(elemento.id)">
                     <mat-icon>delete_forever</mat-icon>
                 </button>
-                <mat-card *ngIf="menuCard==true&& showId==elemento.id" class="menu-card">
+                <!-- <mat-card *ngIf="menuCard==true&& showId==elemento.id" class="menu-card">
                     <mat-card-title>¿Está seguro que desea de eliminar el objeto?</mat-card-title>
                     <mat-card-actions>
-                        <button mat-stroked-button (click)="eliminarElemento(elemento.id)" color="secondary">Eliminar</button>
+                        <button mat-stroked-button (click)="" color="secondary">Borrar Elemento</button>
                         <button mat-stroked-button (click)="menuCard=false"color="secondary">Cancelar</button>
                     </mat-card-actions>
-                </mat-card>
+                </mat-card> -->
             </mat-card-actions>
         </mat-card>
     </div>

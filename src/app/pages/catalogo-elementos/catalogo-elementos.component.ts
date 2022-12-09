@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { delay } from 'rxjs';
 import { ElementoDeseado, ElementoTrueque, Trueque } from 'src/app/models/negocio.model';
 import { Usuario } from 'src/app/models/user.model';
 import { HttpService } from 'src/app/services/http.service';
@@ -15,12 +16,12 @@ export class CatalogoElementosComponent implements OnInit {
   elementos:ElementoTrueque[]=[];
   solicitante:Usuario=new Usuario();
   elementoDeseado:ElementoDeseado=new ElementoDeseado();
-  constructor(private httpService:HttpService,public router:Router) { }
+  constructor(private httpService:HttpService) { }
 
   ngOnInit(): void {
     let usuario:any=localStorage.getItem('user')
-    if (localStorage.getItem('user')!=null){this.solicitante=JSON.parse(usuario);}
-    this.httpService.getElementos().subscribe(
+    if (usuario!=null){this.solicitante=JSON.parse(usuario);}
+    this.httpService.getCatalogoElementosDisponibles().subscribe(
       res=>{this.elementos=res.filter(elemento=>elemento.disponible==true&&elemento.usuario?.id!=this.solicitante.id)
       }
     )
@@ -38,9 +39,10 @@ export class CatalogoElementosComponent implements OnInit {
         res=>
         {
           console.log(res);
-          this.router.navigate(['misTrueques']);  
         }
       )
+      delay(2000)
+      window.location.reload()
     }
   }
 

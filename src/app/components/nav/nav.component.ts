@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
+import { Usuario } from 'src/app/models/user.model';
 
 @Component({
   selector: 'nav',
@@ -7,8 +8,11 @@ import { Route, Router } from '@angular/router';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-
-  constructor(private router:Router) { }
+  loggedUser:Usuario=new Usuario();
+  constructor(private router:Router) { 
+    let usuario:any=localStorage.getItem('user')
+    if (localStorage.getItem('user')!=null){this.loggedUser=JSON.parse(usuario);}
+  }
 
   ngOnInit(): void {
   }

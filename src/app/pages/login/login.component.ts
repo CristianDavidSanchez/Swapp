@@ -23,8 +23,7 @@ export class LoginComponent implements OnInit {
       this.httpService.postLog(this.usuario).subscribe(
         res=>{
           if(res){
-            const loggedUser:Usuario=res;
-            localStorage.setItem('user',JSON.stringify(loggedUser));
+            localStorage.setItem('user',JSON.stringify(res));
             this.router.navigate(['elementos']);
           }else{
             this.snackBar.open("Usuario o contraseña incorrectos","OK")

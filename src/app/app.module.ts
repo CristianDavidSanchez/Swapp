@@ -26,7 +26,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatListModule} from '@angular/material/list';
-import {MatTableModule} from '@angular/material/table'
+import {MatTableModule} from '@angular/material/table';
+import { AdminPageComponent } from './pages/admin-page/admin-page.component'
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import {MatTableModule} from '@angular/material/table'
     RegistrarElementoComponent,
     LayoutComponent,
     CatalogoElementosComponent,
-    ErrorAlertComponent
+    ErrorAlertComponent,
+    AdminPageComponent
   ],
   imports: [
     BrowserModule,

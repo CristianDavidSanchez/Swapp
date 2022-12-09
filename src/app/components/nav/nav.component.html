@@ -4,25 +4,25 @@
             <img src="../../../assets/logo 1.png" width="50px">
             <span class="logo">Sw-app</span>
         </div>
-        <div class="menu-item">
+        <div *ngIf="loggedUser.rol!.nombre=='trocador'" class="menu-item">
             <button routerLink="/elementos" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
                 <mat-icon>list_alt</mat-icon>
             </button>
             <span>Elementos disponibles</span>
         </div>
-        <div class="menu-item">
+        <div *ngIf="loggedUser.rol!.nombre=='trocador'" class="menu-item">
             <button routerLink="/misElementos" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
                 <mat-icon>folder</mat-icon>
             </button>
             <span>Mis elementos</span>
         </div>
-        <div class="menu-item">
+        <div *ngIf="loggedUser.rol!.nombre=='trocador'" class="menu-item">
             <button routerLink="/misTrueques" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
                 <mat-icon>check_box</mat-icon>
             </button>
             <span>Mis trueques</span>
         </div>
-        <div class="menu-item">
+        <div *ngIf="loggedUser.rol!.nombre=='trocador'" class="menu-item">
             <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon"(click)="logout()">
                 <mat-icon>cancel</mat-icon>
             </button>
