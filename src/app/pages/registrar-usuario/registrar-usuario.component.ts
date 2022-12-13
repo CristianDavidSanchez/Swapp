@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Categoria } from 'src/app/models/negocio.model';
 import { Usuario } from 'src/app/models/user.model';
@@ -14,14 +15,9 @@ export class RegistrarUsuarioComponent implements OnInit {
   password:string='';
   categorias:Categoria[]=[];
   usuarioNuevo:Usuario=new Usuario();
-  constructor(private httpService:HttpService,public router:Router) { }
+  constructor(private httpService:HttpService,public router:Router,private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
-    this.httpService.getCategorias().subscribe(
-      res=>{this.categorias=res
-      console.log(this.categorias)
-      }
-    )
   }
 
   /**
@@ -29,11 +25,24 @@ export class RegistrarUsuarioComponent implements OnInit {
    */
   public registrarse() {
       this.usuarioNuevo.estado=true;
-      this.httpService.postUsuario(this.usuarioNuevo).subscribe(
-        res=>{
-          if(res){this.router.navigate(['']);}
-          }
-      )
+      if(this.usuarioNuevo.correo&&this.usuarioNuevo.contrasena&&this.usuarioNuevo.ciudad){
+        this.httpService.postUsuario(this.usuarioNuevo).subscribe(
+          {
+            next: res => {
+              if(res){
+                console.log(res);
+                this.router.navigate(['']);
+              }else{
+                this.snackBar.open("Correo ya existe ingrese uno nuevo","OK")
+              }
+            },
+            error: error => {
+                this.snackBar.open("Error de conexión con la base de datos intente de nuevo más tarde","OK")
+            }
+        }
+        )
+      }else{this.snackBar.open("No se puede registrar sin ingresar email contraseña y ciudad ","OK")}
+
   }
 
 }

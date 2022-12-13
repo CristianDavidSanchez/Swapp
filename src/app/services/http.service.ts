@@ -22,7 +22,7 @@ export class HttpService {
     return this.http.post<Usuario>(environment.API+"/Log",usuario)	
   }
   public postUsuario(usuario:Usuario): Observable<Usuario>{
-    return this.http.post<Usuario>(environment.API+"/nuevoUsuario",usuario)
+    return this.http.post<Usuario>(environment.API+"/nuevoUsuario",usuario)     
   }
   public getCatalogoElementosDisponibles():Observable<ElementoTrueque[]>{
 		return this.http.get<ElementoTrueque[]>(environment.API + '/ElementosTrueque');
@@ -56,5 +56,8 @@ export class HttpService {
   }
   public cancelarTrueque(id:number):Observable<String>{
     return this.http.put<String>(environment.API + '/Trueque/Cancelar/'+id,{})
+  }
+  public generarReporte():Observable<any>{
+		return this.http.get<any>(environment.API + '/Trueques/reporte');
   }
 }

@@ -4,7 +4,8 @@
           <div mat-card-avatar>
             <mat-icon *ngIf="elemento.categoria?.nombre=='Ropa'" aria-label="Example home icon" fontIcon="checkroom"></mat-icon>
             <mat-icon *ngIf="elemento.categoria?.nombre=='Tecnologia'" aria-label="Example home icon" fontIcon="phone_iphone"></mat-icon>
-            <mat-icon *ngIf="elemento.categoria?.nombre=='Deportes'" aria-label="Example home icon" fontIcon="checkroom"></mat-icon>
+            <mat-icon *ngIf="elemento.categoria?.nombre=='Deportes'" aria-label="Example home icon" fontIcon="sports_soccer"></mat-icon>
+            <mat-icon *ngIf="elemento.categoria?.nombre=='Hogar'" aria-label="Example home icon" fontIcon="home"></mat-icon>
 
           </div>
           <mat-card-title>{{elemento.nombre}}</mat-card-title>
@@ -21,7 +22,7 @@
           </ul>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-stroked-button (click)="menuCard=true; showId=elemento.id" color="primary">Solicitar Trueque</button>
+          <button mat-stroked-button (click)="menuCard=true; showId=elemento.id" color="primary">Iniciar Solicitud</button>
           <mat-card *ngIf="menuCard==true && showId==elemento.id" class="menu-card">
             <mat-card-title>Seleccione el objeto que desea ofrecer</mat-card-title>
             <mat-form-field appearance="outline" class="example-form-field" color="primary">
@@ -33,7 +34,7 @@
                 </mat-select>
               </mat-form-field>
               <mat-card-actions>
-                <button mat-stroked-button (click)="solicitarTrueque(elemento)" color="secondary">Enviar Solicitud</button>
+                <button mat-stroked-button (click)="solicitarTrueque(elemento)" color="secondary">Solicitar Trueque</button>
                 <button mat-stroked-button (click)="menuCard=false" color="secondary">Cancelar</button>
               </mat-card-actions>
           </mat-card>

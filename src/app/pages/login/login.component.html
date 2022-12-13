@@ -17,7 +17,7 @@
             <div class="logintext">
                 <mat-form-field appearance="outline" class="example-form-field" color="accent">
                     <mat-label>Contraseña</mat-label>
-                    <input matInput type="text" [(ngModel)]="usuario.contrasena">
+                    <input matInput type="password" [(ngModel)]="usuario.contrasena">
                     <button *ngIf="usuario.contrasena" matSuffix mat-icon-button aria-label="Clear" (click)="usuario.contrasena=''">
                       <mat-icon>close</mat-icon>
                     </button>

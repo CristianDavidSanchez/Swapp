@@ -17,7 +17,7 @@ export class AdminGuard implements CanActivate {
       let usuario:any=localStorage.getItem('user')
       if (usuario!=null){
         usuario=JSON.parse(usuario)
-        if(usuario.rol.nombre=="admin"){
+        if(usuario.rol.nombre=="Admin"){
           result=true;
         }else{
           result=false;

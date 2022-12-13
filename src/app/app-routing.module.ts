@@ -52,7 +52,7 @@ const routes: Routes = [
       },
       {
         path:'adminPage',
-        canActivate:[AuthGuard,TrocadorGuard],
+        canActivate:[AuthGuard,AdminGuard],
         component:AdminPageComponent,
       },
     ]

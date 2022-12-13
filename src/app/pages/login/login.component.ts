@@ -20,19 +20,18 @@ export class LoginComponent implements OnInit {
   }
   public login(){
     if (this.usuario){
-      this.httpService.postLog(this.usuario).subscribe(
-        res=>{
+      this.httpService.postLog(this.usuario).subscribe({
+        next:res=>{
           if(res){
             localStorage.setItem('user',JSON.stringify(res));
             this.router.navigate(['elementos']);
           }else{
             this.snackBar.open("Usuario o contraseña incorrectos","OK")
-            // this.snackBar.openFromComponent(ErrorAlertComponent,{
-            //   duration: 2000,
-            // })
           }
-        }
-      )
+        },
+        error:error=>{this.snackBar.open("Error de conexión con la base de datos intente de nuevo más tarde","OK")}
+      });
+
     }
   }
 }

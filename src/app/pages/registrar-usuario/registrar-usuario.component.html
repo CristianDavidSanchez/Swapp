@@ -24,24 +24,6 @@
             </div>
             <div class="form-row">
                 <mat-form-field appearance="outline" class="example-form-field" color="primary">
-                    <mat-label>Cedula</mat-label>
-                    <input matInput type="text" [(ngModel)]="usuarioNuevo.documentoIdentificacion">
-                    <button *ngIf="usuarioNuevo.documentoIdentificacion" matSuffix mat-icon-button aria-label="Clear" (click)="usuarioNuevo.documentoIdentificacion=0">
-                      <mat-icon>close</mat-icon>
-                    </button>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="example-form-field" color="primary">
-                  <mat-label>Categoría</mat-label>
-                  <mat-select>
-                    <mat-option *ngFor="let categoria of categorias" [value]="categoria.id">
-                      {{categoria.nombre}}
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
-            </div>
-
-            <div class="form-row">
-                <mat-form-field appearance="outline" class="example-form-field" color="primary">
                     <mat-label>Dirección</mat-label>
                     <input matInput type="text" [(ngModel)]="usuarioNuevo.direccion">
                     <button *ngIf="usuarioNuevo.direccion" matSuffix mat-icon-button aria-label="Clear" (click)="usuarioNuevo.direccion=''">
@@ -62,7 +44,7 @@
                 <mat-form-field appearance="outline" class="example-form-field" color="primary" >
                     <mat-label>Ciudad</mat-label>
                     <mat-select [(ngModel)]="usuarioNuevo.ciudad">
-                        <mat-option value="Bogotá">Bogotá</mat-option>
+                        <mat-option value="Bogota">Bogotá</mat-option>
                         <mat-option value="Medellin">Medellin</mat-option>
                         <mat-option value="Cali">Cali</mat-option>
                         <mat-option value="Tunja">Tunja</mat-option>
@@ -79,6 +61,15 @@
                     </button>
                 </mat-form-field>
             </div>
+            <div class="form-row">
+              <mat-form-field appearance="outline" class="example-form-field" color="primary">
+                  <mat-label>Cedula</mat-label>
+                  <input matInput type="text" [(ngModel)]="usuarioNuevo.documentoIdentificacion">
+                  <button *ngIf="usuarioNuevo.documentoIdentificacion" matSuffix mat-icon-button aria-label="Clear" (click)="usuarioNuevo.documentoIdentificacion=0">
+                    <mat-icon>close</mat-icon>
+                  </button>
+              </mat-form-field>
+          </div>
             <div class="loginbtn">
                 <button mat-raised-button color="accent" (click)="registrarse()">Registrarse</button>
             </div>

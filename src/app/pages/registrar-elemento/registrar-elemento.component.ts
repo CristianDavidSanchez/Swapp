@@ -5,6 +5,7 @@ import { Usuario } from 'src/app/models/user.model';
 import { HttpService } from 'src/app/services/http.service';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-registrar-elemento',
@@ -20,7 +21,7 @@ export class RegistrarElementoComponent implements OnInit {
   addOnBlur = true;
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
 
-  constructor(private httpService:HttpService, public router:Router) { }
+  constructor(private httpService:HttpService, public router:Router,private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     let usuario:any=localStorage.getItem('user')
@@ -41,12 +42,13 @@ export class RegistrarElementoComponent implements OnInit {
     }
     this.elementoNuevo.usuario=usuarioSend;
     this.elementoNuevo.categoria=categoriaSend;
-    this.httpService.postElemento(this.elementoNuevo).subscribe(
-      res=>{
-        console.log(res);
-        console.log(this.elementoNuevo)
-
+    this.httpService.postElemento(this.elementoNuevo).subscribe({
+      next:res=>{
+      },
+      error: error => {
+        this.snackBar.open("Error de conexión con la base de datos intente de nuevo más tarde","OK")
       }
+    }
     )
     this.router.navigate(['misElementos']); 
   }
